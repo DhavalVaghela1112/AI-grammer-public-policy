@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AI Grammar Enhancer & Tone Adjuster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-base:        #07070d;
+      --bg-card:        rgba(255, 255, 255, 0.03);
+      --bg-card-hover:  rgba(255, 255, 255, 0.05);
+      --border:         rgba(255, 255, 255, 0.07);
+      --text-primary:   #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --text-muted:     #71717a;
+      --accent-violet:  #a78bfa;
+      --accent-pink:    #ec4899;
+      --accent-blue:    #6c63ff;
+      --accent-green:   #22c55e;
+      --radius-md:      12px;
+      --radius-lg:      18px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Ambient background orbs ── */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      animation: orb-float 14s ease-in-out infinite alternate;
+    }
+    .bg-orb-1 {
+      width: 700px; height: 700px;
+      background: rgba(108, 99, 255, 0.10);
+      top: -280px; right: -180px;
+    }
+    .bg-orb-2 {
+      width: 500px; height: 500px;
+      background: rgba(236, 72, 153, 0.07);
+      bottom: -180px; left: -100px;
+      animation-delay: -5s;
+    }
+    @keyframes orb-float {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 20px) scale(1.06); }
+    }
+
+    /* ── Layout ── */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      font-size: 32px;
+      filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.6));
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.4px;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+    }
+
+    .page-subtitle {
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .effective-date {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 14px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 100px;
+      font-size: 13px;
+      color: var(--accent-violet);
+      font-weight: 500;
+    }
+
+    /* ── Highlight banner ── */
+    .highlight-banner {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(34, 197, 94, 0.06);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin-bottom: 40px;
+    }
+
+    .highlight-banner .icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .highlight-banner p {
+      font-size: 14.5px;
+      color: #86efac;
+      line-height: 1.65;
+    }
+
+    .highlight-banner strong {
+      color: #bbf7d0;
+    }
+
+    /* ── Section cards ── */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      margin-bottom: 20px;
+      transition: background 0.2s;
+    }
+
+    .section-card:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .icon-violet { background: rgba(167, 139, 250, 0.15); }
+    .icon-pink   { background: rgba(236, 72, 153, 0.13); }
+    .icon-blue   { background: rgba(108, 99, 255, 0.15); }
+    .icon-green  { background: rgba(34, 197, 94, 0.12); }
+    .icon-amber  { background: rgba(251, 191, 36, 0.12); }
+    .icon-red    { background: rgba(239, 68, 68, 0.12); }
+    .icon-cyan   { background: rgba(34, 211, 238, 0.12); }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.2px;
+    }
+
+    .section-body {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+    }
+
+    .section-body p {
+      margin-bottom: 12px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Lists ── */
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 6px 0;
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .check-list li:last-child {
+      border-bottom: none;
+    }
+
+    .check-list li::before {
+      content: '✓';
+      color: var(--accent-green);
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .cross-list li::before {
+      content: '✕';
+      color: #f87171;
+    }
+
+    /* ── Provider table ── */
+    .provider-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .provider-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    .provider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 10px 0 20px;
+    }
+
+    /* ── Inline highlight ── */
+    .pill {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 100px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .pill-violet {
+      background: rgba(167, 139, 250, 0.14);
+      color: var(--accent-violet);
+    }
+
+    .pill-green {
+      background: rgba(34, 197, 94, 0.12);
+      color: #86efac;
+    }
+
+    /* ── Contact section ── */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.08) 0%, rgba(236, 72, 153, 0.06) 100%);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .contact-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-card p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      margin-bottom: 16px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
+      border-radius: 100px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .contact-link:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .page-footer a {
+      color: var(--accent-violet);
+      text-decoration: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .page-title { font-size: 26px; }
+      .provider-grid { grid-template-columns: 1fr; }
+      .section-card { padding: 20px 18px; }
+      .page-wrapper { padding: 40px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background ambient orbs -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="page-header">
+      <div class="logo-row">
+        <span class="logo-icon">✨</span>
+        <span class="logo-text">AI Grammar Enhancer</span>
+      </div>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-subtitle">We keep things simple — your data stays with you.</p>
+      <span class="effective-date">Effective date: May 17, 2026</span>
+    </header>
+
+    <!-- Core promise banner -->
+    <div class="highlight-banner">
+      <span class="icon">🔒</span>
+      <p>
+        <strong>The short version:</strong> AI Grammar Enhancer does not collect, transmit, or store any of your personal data on any server we operate. Your API key is encrypted locally on your device and never leaves it. Text you enhance is sent directly from your browser to the AI provider you chose — we never see it.
+      </p>
+    </div>
+
+    <!-- 1. What we are -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-violet">📖</div>
+        <h2 class="section-title">What This Extension Does</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          AI Grammar Enhancer &amp; Tone Adjuster is a Chrome browser extension that helps you write better by detecting text you type on any webpage and offering AI-powered grammar correction, tone adjustment, and writing enhancement with a single click.
+        </p>
+        <p>
+          The extension works entirely within your browser using the AI provider and API key that you set up during the initial configuration. We do not operate any intermediary servers, databases, or analytics pipelines.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. Data we do NOT collect -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-red">🚫</div>
+        <h2 class="section-title">Data We Do Not Collect</h2>
+      </div>
+      <div class="section-body">
+        <p>We want to be completely transparent. This extension <strong style="color: #fca5a5;">never</strong> collects, stores, or transmits the following:</p>
+        <ul class="check-list cross-list">
+          <li>Your name, email address, or any account information</li>
+          <li>The text content you type or enhance on any website</li>
+          <li>Your browsing history or the URLs of pages you visit</li>
+          <li>Your API key in readable (decrypted) form — it never leaves your device</li>
+          <li>Usage analytics, error reports, or telemetry of any kind</li>
+          <li>Cookies or any form of cross-site tracking</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Data stored locally -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-blue">💾</div>
+        <h2 class="section-title">Data Stored Locally on Your Device</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          The extension stores a small amount of data in your browser's local storage (<span class="pill pill-violet">chrome.storage.local</span>) to remember your preferences between sessions. This data never leaves your device.
+        </p>
+        <ul class="check-list">
+          <li><strong style="color: var(--text-primary);">Encrypted API key</strong> — your API key is encrypted using AES-256-GCM with a unique encryption key derived via HKDF from your extension's runtime ID. The raw key is never written to disk in any readable form.</li>
+          <li><strong style="color: var(--text-primary);">Selected AI provider</strong> — which service you have configured (OpenAI, Gemini, Groq, or Ollama).</li>
+          <li><strong style="color: var(--text-primary);">Tone preference</strong> — your preferred writing tone (professional, casual, friendly, formal).</li>
+          <li><strong style="color: var(--text-primary);">Ollama endpoint URL</strong> — only if you use a self-hosted Ollama instance.</li>
+        </ul>
+        <p style="margin-top: 14px;">
+          You can delete all locally stored data at any time by removing the extension or clearing its storage from <em>chrome://extensions → AI Grammar Enhancer → Details → Clear data</em>.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4. How your text is processed -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-pink">⚡</div>
+        <h2 class="section-title">How Your Text Is Processed</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          When you click "Enhance Text", the selected text is sent directly from your browser to the AI provider's API endpoint using your own API key. The request goes from your device straight to the provider — there is no relay server or intermediary operated by us.
+        </p>
+        <p>The AI providers you can choose from are:</p>
+        <div class="provider-grid">
+          <div class="provider-pill">
+            <span class="provider-dot" style="background: #10a37f;"></span>
+            OpenAI (api.openai.com)
+          </div>
+          <div class="provider-pill">
+            <span class="provider-dot" style="background: #4285f4;"></span>
+            Google Gemini (googleapis.com)
+          </div>
+          <div class="provider-pill">
+            <span class="provider-dot" style="background: #f55036;"></span>
+            Groq (api.groq.com)
+          </div>
+          <div class="provider-pill">
+            <span class="provider-dot" style="background: #a78bfa;"></span>
+            Ollama (localhost — private)
+          </div>
+        </div>
+        <p style="margin-top: 14px;">
+          Each provider has its own privacy policy that governs how they handle API requests. We strongly encourage you to review the privacy policy of the provider you choose. When using the local Ollama option, your text never leaves your machine at all.
+        </p>
+      </div>
+    </div>
+
+    <!-- 5. Permissions explained -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-amber">🔑</div>
+        <h2 class="section-title">Browser Permissions Explained</h2>
+      </div>
+      <div class="section-body">
+        <p>The extension requests the following browser permissions and nothing more:</p>
+        <ul class="check-list">
+          <li><strong style="color: var(--text-primary);">activeTab</strong> — to read the text you are currently editing and write the corrected result back into the same input field on the active page.</li>
+          <li><strong style="color: var(--text-primary);">storage</strong> — to save your encrypted API key and settings locally on your device.</li>
+          <li><strong style="color: var(--text-primary);">scripting</strong> — to inject the enhancement button and result popup UI into web pages so the feature can appear inline next to any text field.</li>
+          <li><strong style="color: var(--text-primary);">Host permissions (API endpoints only)</strong> — to allow the background service worker to reach the four specific AI API endpoints listed above. No other hosts are ever contacted.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6. No remote code -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-green">📦</div>
+        <h2 class="section-title">No Remote Code Execution</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          All JavaScript powering this extension is bundled within the extension package itself. The extension does <strong style="color: var(--text-primary);">not</strong> load, download, or execute any code from external URLs at runtime. No use of <code style="background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 4px; font-size: 13px;">eval()</code>, dynamic script injection, or remote modules of any kind is present in the codebase.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7. Children -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-cyan">👶</div>
+        <h2 class="section-title">Children's Privacy</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          This extension is not directed at children under the age of 13 and we do not knowingly collect any personal information from children. Because we collect no personal data from any user, no special risk arises from children using the extension.
+        </p>
+      </div>
+    </div>
+
+    <!-- 8. Changes -->
+    <div class="section-card">
+      <div class="section-heading">
+        <div class="section-icon icon-violet">📝</div>
+        <h2 class="section-title">Changes to This Policy</h2>
+      </div>
+      <div class="section-body">
+        <p>
+          If we make any material changes to this privacy policy, we will update the effective date at the top of this page and, where appropriate, provide a notice within the extension. We encourage you to review this page periodically. Continued use of the extension after changes are posted constitutes your acceptance of the updated policy.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>© 2026 AI Grammar Enhancer &amp; Tone Adjuster &nbsp;·&nbsp; <a href="https://github.com/Dhaval1112/ai-grammar-enhancer" target="_blank" rel="noopener">GitHub</a></p>
+      <p style="margin-top: 6px;">This policy applies to the Chrome extension version 1.1.0 and above.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
